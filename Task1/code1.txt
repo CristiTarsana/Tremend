@@ -1,0 +1,304 @@
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker pull ubuntu
+Using default tag: latest
+error during connect: this error may indicate that the docker daemon is not running: Post "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/images/create?fromImage=ubuntu&tag=latest": open //./pipe/docker_engine: The system cannot find the file specified.
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+Digest: sha256:77906da86b60585ce12215807090eb327e7386c8fafb5402369e421f44eff17e
+Status: Image is up to date for ubuntu:latest
+docker.io/library/ubuntu:latest
+
+What's Next?
+  1. Sign in to your Docker account → docker login
+  2. View a summary of image vulnerabilities and recommendations → docker scout quickview ubuntu
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker run -it --name my_linux_container ubuntu
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ ^C
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ winpty docker run -it --name my_linux_container ubuntu
+docker: Error response from daemon: Conflict. The container name "/my_linux_cont
+ainer" is already in use by container "9a8def783c1683aa8c87ab43e10397bc6ff59b7c7
+3a2a2ee68f51f28b11b58ff". You have to remove (or rename) that container to be ab
+le to reuse that name.
+See 'docker run --help'.
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ ^C
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker rm my_linux_container
+my_linux_container
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ winpty docker run -it --name my_linux_container ubuntu
+root@b2087640b82c:/# adduser john
+Adding user `john' ...
+Adding new group `john' (1000) ...
+Adding new user `john' (1000) with group `john' ...
+Creating home directory `/home/john' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for john
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+root@b2087640b82c:/# pwd
+/
+root@b2087640b82c:/# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+john:x:1000:1000:,,,:/home/john:/bin/bash
+root@b2087640b82c:/# cd
+root@b2087640b82c:~# cd .
+root@b2087640b82c:~# pwd
+/root
+root@b2087640b82c:~# docker cp C:/Users/Cristi/Desktop/tremend/create_large_file.sh my_linux_
+bash: docker: command not found
+root@b2087640b82c:~# cd /
+root@b2087640b82c:/# docker cp C:/Users/Cristi/Desktop/tremend/create_large_file.sh my_linux_
+bash: docker: command not found
+root@b2087640b82c:/# docker --version
+bash: docker: command not found
+root@b2087640b82c:/# sudo systemctl status docker
+bash: sudo: command not found
+root@b2087640b82c:/# docker ps
+bash: docker: command not found
+root@b2087640b82c:/# pwd
+/
+root@b2087640b82c:/# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+john:x:1000:1000:,,,:/home/john:/bin/bash
+root@b2087640b82c:/# exit
+exit
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker cp C:/Users/Cristi/Desktop/tremend/create_large_file.sh my_linux_container:/home/john
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker exec -it my_linux_container bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winp
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ winpty docker exec -it my_linux_container bash
+Error response from daemon: container b2087640b82c4f99e258c73fb209a9ff5a18c26bfbb222e7cf5045c
+g
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker start my_linux_container
+my_linux_container
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+b2087640b82c   ubuntu    "/bin/bash"   47 minutes ago   Up 19 seconds             my_linux_co
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ docker exec -it my_linux_container bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winp
+
+Cristi@DESKTOP-SQVEL9B MINGW64 /c/Users/Cristi/Desktop
+$ winpty docker exec -it my_linux_container bash
+root@b2087640b82c:/# cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/
+usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+john:x:1000:1000:,,,:/home/john:/bin/bash
+root@b2087640b82c:/# ls /home/john
+create_large_file.sh
+root@b2087640b82c:/# cat /home/john/create_large_file.sh
+#!/bin/bash
+
+dd if=/dev/zero of=large_file bs=1M count=50
+
+mv lage_file /home/john
+
+root@b2087640b82c:/# su - john
+john@b2087640b82c:~$ cd ~
+john@b2087640b82c:~$ pwd
+/home/john
+john@b2087640b82c:~$ ./create_large_file.sh
+50+0 records in
+50+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 0.124704 s, 420 MB/s
+mv: cannot stat 'lage_file': No such file or directory
+john@b2087640b82c:~$ ^C
+john@b2087640b82c:~$ nano create_large_file.sh
+-bash: nano: command not found
+john@b2087640b82c:~$ vim create_large_file.sh
+-bash: vim: command not found
+john@b2087640b82c:~$ vi create_large_file.sh
+-bash: vi: command not found
+john@b2087640b82c:~$ sed -i 's/mv lage_file/mv large_file/' create_large_file.sh
+john@b2087640b82c:~$ cat create_large_file.sh
+#!/bin/bash
+
+dd if=/dev/zero of=large_file bs=1M count=50
+
+mv large_file /home/john
+
+john@b2087640b82c:~$ ./create_large_file.sh
+50+0 records in
+50+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 0.205927 s, 255 MB/s
+mv: 'large_file' and '/home/john/large_file' are the same file
+john@b2087640b82c:~$ cat /home/john/large_file
+
+john@b2087640b82c:~$
+john@b2087640b82c:~$
+john@b2087640b82c:~$ rm /home/john/large_file
+john@b2087640b82c:~$ ./create_large_file.sh
+50+0 records in
+50+0 records out
+52428800 bytes (52 MB, 50 MiB) copied, 0.053368 s, 982 MB/s
+mv: 'large_file' and '/home/john/large_file' are the same file
+john@b2087640b82c:~$ ls /home/john/
+create_large_file.sh  large_file
+john@b2087640b82c:/$ exit
+exit
+root@b2087640b82c:/# echo $HOME
+/root
+root@b2087640b82c:/# cut -d: -f1 /etc/passwd
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+_apt
+john
+root@b2087640b82c:/# cut -d: -f1 /etc/passwd | sort | uniq | wc -l
+20
+root@b2087640b82c:/# cut -d: -f1 /etc/passwd | wc -l
+20
+root@b2087640b82c:/# read -p "Enter username: " username
+Enter username: john
+root@b2087640b82c:/# grep "^$username:" /etc/passwd | cut -d: -f6
+/home/john
+root@b2087640b82c:/# getent passwd | awk -F: -v min="$1000" -v max="$1010" '$3 >= min && $3 <
+= max {print $1}'
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+root@b2087640b82c:/# getent passwd | grep -E '/bin/(bash|sh)$' | cut -d: -f1
+root
+john
+root@b2087640b82c:/# sed 's/\//\\/g' /etc/passwd > new_passwd.txt
+root@b2087640b82c:/# cat new_passwd.txt
+root:x:0:0:root:\root:\bin\bash
+daemon:x:1:1:daemon:\usr\sbin:\usr\sbin\nologin
+bin:x:2:2:bin:\bin:\usr\sbin\nologin
+sys:x:3:3:sys:\dev:\usr\sbin\nologin
+sync:x:4:65534:sync:\bin:\bin\sync
+games:x:5:60:games:\usr\games:\usr\sbin\nologin
+man:x:6:12:man:\var\cache\man:\usr\sbin\nologin
+lp:x:7:7:lp:\var\spool\lpd:\usr\sbin\nologin
+mail:x:8:8:mail:\var\mail:\usr\sbin\nologin
+news:x:9:9:news:\var\spool\news:\usr\sbin\nologin
+uucp:x:10:10:uucp:\var\spool\uucp:\usr\sbin\nologin
+proxy:x:13:13:proxy:\bin:\usr\sbin\nologin
+www-data:x:33:33:www-data:\var\www:\usr\sbin\nologin
+backup:x:34:34:backup:\var\backups:\usr\sbin\nologin
+list:x:38:38:Mailing List Manager:\var\list:\usr\sbin\nologin
+irc:x:39:39:ircd:\run\ircd:\usr\sbin\nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):\var\lib\gnats:\usr\sbin\nologin
+nobody:x:65534:65534:nobody:\nonexistent:\usr\sbin\nologin
+_apt:x:100:65534::\nonexistent:\usr\sbin\nologin
+john:x:1000:1000:,,,:\home\john:\bin\bash
+root@b2087640b82c:/# rm new_passwd.txt
+root@b2087640b82c:/# hostname -I | cut -d' ' -f1
+172.17.0.2
+root@b2087640b82c:/# curl ipinfo.io/ip
+-bash: curl: command not found
+root@b2087640b82c:/# su john
+john@b2087640b82c:/$ echo $HOME
+/home/john
