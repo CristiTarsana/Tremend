@@ -1,0 +1,136 @@
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker pull mysql
+Using default tag: latest
+latest: Pulling from library/mysql
+Digest: sha256:9d1c923e5f66a89607285ee2641f8a53430a1ccd5e4a62b35eb8a48b74b9ff48
+Status: Image is up to date for mysql:latest
+docker.io/library/mysql:latest
+
+What's Next?
+  1. Sign in to your Docker account → docker login
+  2. View a summary of image vulnerabilities and recommendations → docker scout quickview mysql
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker run -d --name mysql_container mysql
+8f63f611fc062f96637b4a88ca744b7f7dfe2cc38d043a1c54f365ab224e2b67
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker run -d --name mysql_container -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql
+docker: Error response from daemon: Conflict. The container name "/mysql_container" is already in use by container "8f63f611fc062f96637b4a88ca744b7f7dfe2cc38d043a1c54f365ab224e2b67". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ rm mysql_container
+rm: cannot remove 'mysql_container': No such file or directory
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED       STATUS       PORTS     NAMES
+b2087640b82c   ubuntu    "/bin/bash"   3 hours ago   Up 3 hours             my_linux_container
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker exec -it mysql_container bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ winpty docker exec -it mysql_container bash
+Error response from daemon: container 8f63f611fc062f96637b4a88ca744b7f7dfe2cc38d
+043a1c54f365ab224e2b67 is not running
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker-compose up -d
+
+no configuration file provided: not found
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ ^C
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker stop mysql_container
+mysql_container
+
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker rm mysql_container
+mysql_container
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker run -d --name mysql_container -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 mysql
+d62604444899ae0249dfb151cb4663c895adf1d9c352cfa66d0b26e8d15cb60a
+
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ winpty docker exec -it mysql_container bash
+bash-4.4#
+bash-4.4# pwd
+/
+bash-4.4# docker cp C:/Users/Cristi/Desktop/tremend/company.sql mysql_container:/company.sql
+bash: docker: command not found
+bash-4.4# exit
+exit
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker cp C:/Users/Cristi/Desktop/tremend/company.sql mysql_container:/company.sql
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker exec -it mysql_container mysql -uroot -ppassword -e "CREATE DATABASE company.sql
+>
+> "
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ winpty docker exec -it mysql_container mysql -uroot -ppassword -e "CREATE DATABASE company.sql"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
+ES)
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker exec -it mysql_container bash
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ winpty docker exec -it mysql_container bash
+bash-4.4# docker exec -it mysql_container mysql -uroot -ppassword -e "CREATE DAT
+ABASE company;"
+bash: docker: command not found
+bash-4.4# exit
+exit
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ docker exec -it mysql_container mysql -uroot -ppassword -e "CREATE DATABASE company;"
+the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$ winpty docker exec -it mysql_container mysql -uroot -ppassword -e "CREATE DATABASE company;"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
+ES)
+
+Cristi@DESKTOP-SQVEL9B MINGW64 ~
+$
+
+
